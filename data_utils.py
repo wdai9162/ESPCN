@@ -5,7 +5,7 @@ from os.path import join
 
 from PIL import Image
 from torch.utils.data.dataset import Dataset
-from torchvision.transforms import Compose, CenterCrop, Scale
+from torchvision.transforms import Compose, CenterCrop, Resize #Scale is renamed to resize 
 from tqdm import tqdm
 
 
@@ -24,7 +24,7 @@ def calculate_valid_crop_size(crop_size, upscale_factor):
 def input_transform(crop_size, upscale_factor):
     return Compose([
         CenterCrop(crop_size),
-        Scale(crop_size // upscale_factor, interpolation=Image.BICUBIC)
+        Resize(crop_size // upscale_factor, interpolation=Image.BICUBIC)
     ])
 
 

@@ -1,0 +1,6 @@
+venv/
+data/
+epochs/
+results/
+downloads/
+__pycache__
